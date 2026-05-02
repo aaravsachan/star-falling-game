@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Falling Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="score">Score: 0</div>
+        <div id="wave">Wave: 1</div>
+        <div id="powerUpStatus"></div>
+        <div id="startScreen">
+            <h2>Star Falling Game</h2>
+            <p>Collect falling stars to score points:</p>
+            <ul>
+                <li>Yellow stars: 1 point</li>
+                <li>Blue stars: 2 points</li>
+                <li>Green stars: 10 points</li>
+                <li>Purple stars: 100 points (rare!)</li>
+                <li>Orange stars: 500 points (very rare!)</li>
+                <li>White stars: 1000 points (ultra rare!)</li>
+            </ul>
+            <p>Catch power-ups for shield or slow time.</p>
+            <p>Avoid the red ghouls or game over!</p>
+            <p>Move your basket:</p>
+            <p>- Mouse movement OR Arrow keys (← →)</p>
+            <p>Press Space to Start</p>
+        </div>
+        <div id="gameOver" style="display: none;">Game Over! Press Space to Restart.</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

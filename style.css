@@ -1,0 +1,147 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #001122;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#gameContainer {
+    position: relative;
+}
+
+canvas {
+    border: 2px solid #fff;
+    background-color: #000033;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+}
+
+#wave {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
+
+#highScore {
+    position: absolute;
+    top: 10px;
+    left: 150px;
+    font-size: 24px;
+}
+
+#wave {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
+
+#powerUpStatus {
+    position: absolute;
+    top: 42px;
+    right: 10px;
+    font-size: 18px;
+    color: #9df1ff;
+}
+
+#startScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.88);
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.25);
+    width: 360px;
+}
+
+#startScreen h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+#startScreen label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+#playerName {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    background-color: rgba(255,255,255,0.05);
+    color: white;
+    font-size: 16px;
+}
+
+#startScreen ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+}
+
+#startScreen li {
+    margin-bottom: 6px;
+}
+
+#leaderboard {
+    margin-top: 16px;
+    text-align: left;
+}
+
+#leaderboard h3 {
+    margin: 12px 0 6px;
+}
+
+#leaderboardList {
+    padding-left: 18px;
+    margin: 0;
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    color: red;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.9);
+}
+
+#startScreen h2 {
+    margin-top: 0;
+}
+
+#startScreen ul {
+    list-style: none;
+    padding: 0;
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    color: red;
+    text-align: center;
+}
