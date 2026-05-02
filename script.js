@@ -16,6 +16,21 @@ const playerSpeed = 8.4;
 
 const maxFallingObjects = 70;
 
+function resizeCanvas() {
+    const aspectRatio = canvas.width / canvas.height; // 800/600 = 1.333
+    let width = window.innerWidth - 20;
+    let height = width / aspectRatio;
+    if (height > window.innerHeight - 150) {
+        height = window.innerHeight - 150;
+        width = height * aspectRatio;
+    }
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+}
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
 function createFallingObject() {
     if (fallingObjects.length >= maxFallingObjects) return;
     const rand = Math.random();
@@ -140,6 +155,24 @@ canvas.addEventListener('mousemove', (e) => {
     if (player.x > canvas.width - player.width) player.x = canvas.width - player.width;
 });
 
+canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    player.x = ((touch.clientX - rect.left) / rect.width) * canvas.width - player.width / 2;
+    if (player.x < 0) player.x = 0;
+    if (player.x > canvas.width - player.width) player.x = canvas.width - player.width;
+});
+
+canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    player.x = ((touch.clientX - rect.left) / rect.width) * canvas.width - player.width / 2;
+    if (player.x < 0) player.x = 0;
+    if (player.x > canvas.width - player.width) player.x = canvas.width - player.width;
+});
+
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
         if (!gameStarted) {
@@ -162,6 +195,16 @@ document.addEventListener('keyup', (e) => {
     }
 });
 
+document.getElementById('startScreen').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (!gameStarted) startGame();
+});
+
+document.getElementById('gameOver').addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (gameOver) restartGame();
+});
+
 function updateWaveDisplay() {
     document.getElementById('wave').textContent = 'Wave: ' + wave;
 }
@@ -177,6 +220,11 @@ function startGame() {
 }
 
 function restartGame() {
+    resetGame();
+    document.getElementById('startScreen').style.display = 'block';
+}
+
+function resetGame() {
     score = 0;
     gameOver = false;
     gameStarted = false;
@@ -186,7 +234,6 @@ function restartGame() {
     fallingObjects = [];
     document.getElementById('score').textContent = 'Score: ' + score;
     document.getElementById('gameOver').style.display = 'none';
-    document.getElementById('startScreen').style.display = 'block';
     updateWaveDisplay();
     updatePowerUpDisplay();
     player.x = canvas.width / 2 - 25;
